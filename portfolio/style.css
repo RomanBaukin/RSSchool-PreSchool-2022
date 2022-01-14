@@ -9,23 +9,90 @@
   src: url("assets/fonts/Inter-VariableFont_slnt\,wght.ttf");
 }
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
+  background-color: #000000;
+  color: #ffffff;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .container {
   width: 1440px;
   margin: 0 auto;
-  padding: 0 20px;
 }
 
 h1 {
   font-family: 'Merriweather';
   font-size: 60px;
+  margin: 0;
 }
 
 h2 {
   font-family: 'Merriweather';
   font-size: 40px;
+  margin: 0;
+}
+
+.header {
+  height: 90px;
+  background: url('./assets/img/bg.png');
+  background-repeat: no-repeat;
+  background-position: center 0;
+}
+
+.header__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+}
+
+.nav {
+  margin-left: auto;
+}
+
+.nav__items {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav__item {
+  margin-left: 30px;
+  font-size: 20px;
+}
+
+.lang {
+  margin-left: 30px;
+}
+
+.lang__item {
+  font-size: 20px;
+  font-style: bold;
+  margin-left: 2px;
+}
+
+.lang__item--en {
+  color: #BDAE82;
+}
+
+.hero {
+  height: 820px;
+  background: url('./assets/img/bg.png');
+  background-repeat: no-repeat;
+  background-position: center -90px;
 }
