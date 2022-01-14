@@ -9,6 +9,15 @@
   src: url("assets/fonts/Inter-VariableFont_slnt\,wght.ttf");
 }
 
+:root {
+  --color-gold: #bdae82;
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --font1: 60px;
+  --font2: 40px;
+  --font3: 20px;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -16,8 +25,8 @@
 body {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
-  background-color: #000000;
-  color: #ffffff;
+  background-color: var(--color-black);
+  color: var(--color-white);
 }
 
 ul {
@@ -33,14 +42,19 @@ ul {
 
 h1 {
   font-family: 'Merriweather';
-  font-size: 60px;
+  font-size: var(--font1);
   margin: 0;
 }
 
 h2 {
   font-family: 'Merriweather';
-  font-size: 40px;
+  font-size: var(--font2);
   margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-white);
 }
 
 .header {
@@ -73,21 +87,21 @@ h2 {
 
 .nav__item {
   margin-left: 30px;
-  font-size: 20px;
+  font-size: var(--font3);
 }
 
 .lang {
-  margin-left: 30px;
+  margin-left: 35px;
 }
 
 .lang__item {
-  font-size: 20px;
-  font-style: bold;
-  margin-left: 2px;
+  font-size: var(--font3);
+  font-weight: bold;
+  margin-left: 4px;
 }
 
 .lang__item--en {
-  color: #BDAE82;
+  color: var(--color-gold);
 }
 
 .hero {
@@ -95,4 +109,25 @@ h2 {
   background: url('./assets/img/bg.png');
   background-repeat: no-repeat;
   background-position: center -90px;
+  padding-top: 185px;
+  padding-left: 80px;
+}
+
+.hero__title {
+  margin-bottom: 35px;
+}
+
+.hero__desc {
+  max-width: 470px;
+  font-size: var(--font3);
+  line-height: 200%;
+  margin-bottom: 25px;
+}
+
+.hero__button {
+  width: 220px;
+  height: 55px;
+  background-color: var(--color-gold);
+  font-size: var(--font3);
+  color: var(--color-black);
 }
