@@ -256,3 +256,35 @@ a {
 .grid__item:nth-child(6) {
   background-image: url('./assets/img/portfolio-img-06.png');
 }
+
+.video {
+  margin-bottom: 115px;
+}
+
+.video-title::before,
+.video-title::after {
+  width: 275px;
+  margin: 0 20px;
+}
+
+.video-plug {
+  position: relative;
+  width: 1400px;
+  height: 705px;
+  background-image: url('./assets/img/video-player.png');
+  margin: 0 auto;
+}
+
+.play-button {
+  position: absolute;
+  top: calc(50% - 65px);
+  left: calc(50% - 65px);
+  width: 130px;
+  height: 130px;
+  background-color: transparent;
+  background-image: url('./assets/svg/play_button.svg');
+}
+
+.price {
+  margin-bottom: 115px;
+}
