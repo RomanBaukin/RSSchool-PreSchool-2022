@@ -131,7 +131,7 @@ a {
   height: 820px;
   margin-bottom: 115px;
   padding-top: 185px;
-  padding-left: 80px;
+  padding-left: 120px;
   background: url('./assets/img/bg.png');
   background-repeat: no-repeat;
   background-position: center -90px;
@@ -191,8 +191,8 @@ a {
   margin-bottom: 115px;
 }
 
-.portfolio-title::before,
-.portfolio-title::after {
+.portfolio__title::before,
+.portfolio__title::after {
   width: 240px;
   margin: 0 20px;
 }
@@ -261,17 +261,18 @@ a {
   margin-bottom: 115px;
 }
 
-.video-title::before,
-.video-title::after {
+.video__title::before,
+.video__title::after {
   width: 275px;
   margin: 0 20px;
 }
 
 .video-plug {
   position: relative;
-  width: 1400px;
+  max-width: 1400px;
   height: 705px;
   background-image: url('./assets/img/video-player.png');
+  background-repeat: no-repeat;
   margin: 0 auto;
 }
 
@@ -287,4 +288,59 @@ a {
 
 .price {
   margin-bottom: 115px;
+}
+
+.price-cards {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+
+.card {
+  width: 450px;
+  height: 505px;
+  border: 3px solid var(--color-gold);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 43px 43px;
+}
+
+.card__title {
+  font-family: 'Merriweather';
+  font-weight: bold;
+  font-size: 28px;
+  margin-bottom: 40px;
+}
+
+.card__price {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  color: var(--color-gold);
+  margin-bottom: 25px;
+}
+
+.card__desc {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.card__desc p {
+  font-size: var(--font4);
+  margin: 15px;
+}
+
+.card__button {
+  width: 220px;
+  height: 55px;
+  background-color: var(--color-gold);
+  font-size: var(--font3);
+  color: var(--color-black);
+}
+
+.contacts__title {
+  text-align: center;
+  color: var(--color-gold);
 }
