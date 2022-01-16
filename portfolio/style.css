@@ -426,7 +426,7 @@ a {
   padding-left: 12px;
 }
 
-.footer__right {
+.footer__right ul {
   display: flex;
   justify-content: space-between;
   gap: 18px;
