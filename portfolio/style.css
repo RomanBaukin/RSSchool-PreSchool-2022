@@ -406,3 +406,28 @@ a {
   font-size: var(--font3);
   color: var(--color-black);
 }
+
+.footer {
+  padding: 58px 61px;
+  font-size: var(--font3);
+}
+
+.footer__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer__left span {
+  margin-right: 12px;
+}
+
+.footer__center {
+  padding-left: 12px;
+}
+
+.footer__right {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+}
