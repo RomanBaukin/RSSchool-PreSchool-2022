@@ -123,6 +123,11 @@ a {
   margin-left: 4px;
 }
 
+.lang__item--en,
+.lang__item--ru {
+  cursor: pointer;
+}
+
 .lang__item--en {
   color: var(--color-gold);
 }
@@ -287,7 +292,7 @@ a {
 }
 
 .price {
-  margin-bottom: 115px;
+  margin-bottom: 95px;
 }
 
 .price-cards {
@@ -312,6 +317,7 @@ a {
   font-size: 28px;
   margin-bottom: 40px;
 }
+
 
 .card__price {
   font-family: 'Merriweather';
@@ -340,7 +346,63 @@ a {
   color: var(--color-black);
 }
 
+.contacts {
+  height: 700px;
+}
+
+.contacts__container {
+  background-image: url('./assets/img/contacts.png');
+  background-repeat: no-repeat;
+  height: 100%;
+  position: relative;
+}
+
+.contacts__blok {
+  width: 450px;
+  position: absolute;
+  top: 80px;
+  right: 20px;
+}
+
 .contacts__title {
-  text-align: center;
   color: var(--color-gold);
+  margin-bottom: 55px;
+}
+
+.contacts__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.contacts__form input,
+.contacts__form textarea {
+  background-color: transparent;
+  border: 2px solid var(--color-gold);
+  font-size: var(--font3);
+}
+
+.contacts__form input::placeholder,
+.contacts__form textarea::placeholder {
+  color: var(--color-gold);
+}
+
+.contacts__form input {
+  height: 50px;
+  padding: 5px 20px;
+  margin-bottom: 20px;
+}
+
+.contacts__form textarea {
+  resize: none;
+  height: 100px;
+  padding: 10px 20px;
+  margin-bottom: 30px;
+}
+
+.contacts__form button {
+  width: 220px;
+  height: 55px;
+  background-color: var(--color-gold);
+  font-size: var(--font3);
+  color: var(--color-black);
 }
