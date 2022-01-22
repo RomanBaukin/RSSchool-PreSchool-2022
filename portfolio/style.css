@@ -32,6 +32,7 @@ body {
   font-weight: 400;
   background-color: var(--color-black);
   color: var(--color-white);
+  position: relative;
 }
 
 ul {
@@ -489,4 +490,136 @@ a:hover {
 
 .footer__right ul li:nth-child(4) {
   background-image: url('./assets/svg/pinterest.svg');
+}
+
+/* Hamburger */
+
+.hamburger {
+  display: none;
+  position: relative;
+  width: 50px;
+  height: 50px;
+  margin-right: 4px;
+  padding: 5px 0;
+  z-index: 99;
+}
+
+.hamburger .line {
+  width: 50px;
+  height: 3px;
+  background-color: var(--color-white);
+  display: block;
+  margin: 8px auto;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.hamburger:hover {
+  cursor: pointer;
+}
+
+.is-active .line:nth-child(2) {
+  opacity: 0;
+}
+
+.is-active .line:nth-child(1) {
+  -webkit-transform: translateY(17px) rotate(45deg);
+  -ms-transform: translateY(17px) rotate(45deg);
+  -o-transform: translateY(17px) rotate(45deg);
+  transform: translateY(17px) rotate(45deg);
+}
+
+.is-active .line:nth-child(3) {
+  -webkit-transform: translateY(-6px) rotate(-45deg);
+  -ms-transform: translateY(-6px) rotate(-45deg);
+  -o-transform: translateY(-6px) rotate(-45deg);
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* Mobile Menu */
+
+.mobile-menu {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+}
+
+.blackout {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-black);
+  opacity: 0;
+}
+
+.blackout--active {
+  opacity: 0.5;
+}
+
+.mobile-menu__items {
+  display: flex;
+  position: absolute;
+  width: 620px;
+  height: 100%;
+  top: 0;
+  right: -620px;
+  bottom: 0;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: start;
+  background-color: var(--color-black);
+  padding-top: 145px;
+  padding-left: 127px;
+  z-index: 10;
+  transition: 0.5s;
+}
+
+.mobile-menu__items--active {
+  right: 0;
+}
+
+.mobile-menu__item {
+  font-size: 34.8235px;
+  line-height: 73px;
+  margin-bottom: 16px;
+}
+
+/* Media */
+
+@media (max-width: 768px) {
+  .container {
+    max-width: 690px;
+  }
+
+  .header__container {
+    padding: 31px 21px;
+  }
+
+  .header__nav {
+    display: none;
+  }
+
+  .lang {
+    margin-left: 407px;
+  }
+
+  .lang__item {
+    margin-left: 10px;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .mobile-menu {
+    display: block;
+  }
 }
