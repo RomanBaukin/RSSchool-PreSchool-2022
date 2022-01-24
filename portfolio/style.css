@@ -159,10 +159,13 @@ a:hover {
   height: 820px;
   margin-bottom: 115px;
   padding-top: 185px;
-  padding-left: 120px;
   background: url('./assets/img/bg.jpg');
   background-repeat: no-repeat;
   background-position: center -90px;
+}
+
+.hero__container {
+  padding-left: 120px;
 }
 
 .hero__title {
@@ -510,13 +513,19 @@ a:hover {
   background-color: var(--color-white);
   display: block;
   margin: 8px auto;
-  -webkit-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 
 .hamburger:hover {
   cursor: pointer;
+}
+
+.is-active {
+  position: fixed;
+  right: 61px;
+  top: 15px;
 }
 
 .is-active .line:nth-child(2) {
@@ -546,6 +555,7 @@ a:hover {
   left: 0;
   width: 100%;
   height: 100vh;
+  transition: 0.5s;
 }
 
 .blackout {
@@ -566,23 +576,25 @@ a:hover {
 
 .mobile-menu__items {
   display: flex;
-  position: absolute;
+  position: fixed;
   width: 620px;
   height: 100%;
   top: 0;
-  right: -620px;
+  right: -650px;
   bottom: 0;
   flex-direction: column;
   align-items: flex-start;
   justify-content: start;
   background-color: var(--color-black);
-  padding-top: 145px;
+  padding-top: 134px;
   padding-left: 127px;
+  /* transform: translateX(1500px); */
   z-index: 10;
   transition: 0.5s;
 }
 
 .mobile-menu__items--active {
+  /* transform: translateX(152px); */
   right: 0;
 }
 
@@ -593,14 +605,52 @@ a:hover {
 }
 
 /* Media */
+@media (max-width: 1200px) {
+  .container {
+    max-width: 950px;
+  }
 
-@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 100%;
+  }
+
+  .grid__item {
+    background-size: contain;
+    width: 450px;
+    height: 560px;
+    margin: 0 auto;
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+  .skills {
+    margin-bottom: 50px;
+  }
+
+  .skills__items {
+    flex-wrap: wrap;
+  }
+
+  .skill-item {
+    margin-bottom: 70px;
+  }
+}
+
+@media (max-width: 992px) {
   .container {
     max-width: 690px;
   }
 
-  .header__container {
-    padding: 31px 21px;
+  :root {
+    --font1: 32px;
+    --font2: 32px;
+  }
+
+  .header {
+    background-position: 8px -19px;
+    background-size: 125%;
   }
 
   .header__nav {
@@ -621,5 +671,289 @@ a:hover {
 
   .mobile-menu {
     display: block;
+  }
+
+  .hero {
+    padding-top: 91px;
+    background-position: 8px -108px;
+    background-size: 125%;
+    height: 500px;
+    margin-bottom: 100px;
+  }
+
+  .hero__container {
+    padding-left: 20px;
+  }
+
+  .hero__title {
+    margin-bottom: 33px;
+  }
+
+  .hero__desc {
+    max-width: 400px;
+    line-height: 24px;
+    margin-bottom: 60px;
+  }
+
+  .subtitle {
+    margin-bottom: 68px;
+  }
+
+  .subtitle::before,
+  .subtitle::after {
+    width: 120px;
+  }
+
+  .skills {
+    margin-bottom: 104px;
+  }
+
+  .skills__items {
+    justify-content: space-between;
+
+  }
+
+  .skill-item {
+    margin: 0 12px 55px;
+  }
+
+  .skill-item__icon {
+    margin-bottom: 10px;
+  }
+
+  .skill-item__title {
+    line-height: 170%;
+    letter-spacing: 0.5px;
+  }
+
+  .skill-item__desc {
+    line-height: 138%;
+  }
+
+  .portfolio__title {
+    margin-bottom: 72px;
+  }
+
+  .portfolio__title::before,
+  .portfolio__title::after {
+    width: 90px;
+    margin-top: -4px;
+  }
+
+  .tabs {
+    max-width: 450px;
+    flex-wrap: wrap;
+    margin: 0 auto 60px;
+  }
+
+  .portfolio {
+    margin-bottom: 100px;
+  }
+
+  .video {
+    margin-bottom: 100px;
+  }
+
+  .video__container {
+    max-width: 100%;
+  }
+
+  .video__title {
+    margin-bottom: 74px;
+  }
+
+  .video-plug {
+    width: 100%;
+    height: 417px;
+    background-size: cover;
+    background-position: -5px center;
+  }
+
+  .play-button {
+    width: 65px;
+    height: 65px;
+    top: calc(50% - 33px);
+    left: calc(50% - 32px);
+    background-size: cover;
+  }
+
+  .price {
+    margin-bottom: 79px;
+  }
+
+  .price__title {
+    margin-bottom: 74px;
+  }
+
+  .price-cards {
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+  }
+
+  .card {
+    width: 420px;
+    padding: 25px;
+  }
+
+  .contacts {
+    height: 600px;
+  }
+
+  .contacts__container {
+    max-width: 100%;
+    background-size: cover;
+    background-position: -233px center;
+  }
+
+  .contacts__blok {
+    position: static;
+    margin: 0 auto;
+    padding-top: 73px;
+  }
+
+  .contacts__title {
+    text-align: center;
+  }
+
+  .contacts__form button {
+    margin: 0 auto;
+  }
+
+  .footer {
+    height: 190px;
+    padding: 30px;
+  }
+
+  .footer__container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer__left {
+    margin-bottom: 17px;
+  }
+
+  .footer__left span {
+    margin-right: 17px;
+  }
+
+  .footer__center {
+    padding: 0;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 767px) {
+  .container {
+    max-width: 550px;
+  }
+
+  :root {
+    --font1: 28px;
+    --font2: 24px;
+    --font3: 18px;
+    --font4: 16px;
+  }
+
+  .logo {
+    width: 30px;
+    height: 30px;
+  }
+
+  .lang {
+    margin-left: 250px;
+  }
+
+  .hamburger .line {
+    width: 30px;
+  }
+
+  .skills__items {
+    justify-content: center;
+  }
+
+  .contacts__container {
+    max-width: 100%;
+  }
+
+  .hero {
+    height: 350px;
+  }
+
+  .hero__desc {
+    margin-bottom: 35px;
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    max-width: 100%;
+  }
+
+  :root {
+    --font1: 24px;
+    --font2: 20px;
+    --font3: 16px;
+    --font4: 14px;
+  }
+
+  .lang {
+    margin-left: 90px;
+  }
+
+  .header {
+    background-position: -92px 37px;
+    background-size: 150%;
+  }
+
+  .hero {
+    background-position: -92px -53px;
+    background-size: 150%;
+    margin-bottom: 50px;
+  }
+
+  .hero__button {
+    width: 180px;
+    height: 45px;
+  }
+
+  .subtitle::before,
+  .subtitle::after {
+    width: 50px;
+  }
+
+  .mobile-menu {
+    max-width: 300px;
+  }
+
+  .mobile-menu__items {
+    max-width: 300px;
+    padding-top: 100px;
+    padding-left: 90px;
+    right: -300px;
+  }
+
+  .mobile-menu__items--active {
+    right: 0;
+  }
+
+  .is-active {
+    position: fixed;
+    right: 15px;
+    top: 15px;
+  }
+
+  .grid__item {
+    width: 300px;
+    height: 400px;
+  }
+
+  .card {
+    width: 300px;
+  }
+
+  .contacts__blok {
+    width: 300px;
   }
 }
