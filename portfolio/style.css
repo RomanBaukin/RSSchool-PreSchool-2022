@@ -265,27 +265,27 @@ a:hover {
 }
 
 .grid__item:nth-child(1) {
-  background-image: url('./assets/img/portfolio-img.jpg');
+  background-image: url('./assets/img/autumn/01.jpg');
 }
 
 .grid__item:nth-child(2) {
-  background-image: url('./assets/img/portfolio-img-02.jpg');
+  background-image: url('./assets/img/autumn/02.jpg');
 }
 
 .grid__item:nth-child(3) {
-  background-image: url('./assets/img/portfolio-img-03.jpg');
+  background-image: url('./assets/img/autumn/03.jpg');
 }
 
 .grid__item:nth-child(4) {
-  background-image: url('./assets/img/portfolio-img-04.jpg');
+  background-image: url('./assets/img/autumn/04.jpg');
 }
 
 .grid__item:nth-child(5) {
-  background-image: url('./assets/img/portfolio-img-05.jpg');
+  background-image: url('./assets/img/autumn/05.jpg');
 }
 
 .grid__item:nth-child(6) {
-  background-image: url('./assets/img/portfolio-img-06.jpg');
+  background-image: url('./assets/img/autumn/06.jpg');
 }
 
 .video {
