@@ -151,7 +151,7 @@ a:hover {
   cursor: pointer;
 }
 
-.lang__item--en {
+.lang__item--active {
   color: var(--color-gold);
 }
 
