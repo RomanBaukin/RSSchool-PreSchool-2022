@@ -163,3 +163,28 @@ lang.addEventListener('click', (event) => {
     getTranslate(target.textContent);
   }
 })
+
+// Dark/Light Theme
+
+const darkLightButton = document.querySelector('.dark-light-button'),
+  lightThemeButtonUrl = `url('./assets/svg/light_theme.svg')`,
+  darkThemeButtonUrl = `url('./assets/svg/dark_theme.svg')`;
+
+let currentTheme = darkThemeButtonUrl;
+
+darkLightButton.addEventListener('click', () => {
+  if (currentTheme === darkThemeButtonUrl) {
+    darkLightButton.style.backgroundImage = darkThemeButtonUrl;
+    currentTheme = lightThemeButtonUrl;
+    document.documentElement.style.setProperty('--color-black', '#fff');
+    document.documentElement.style.setProperty('--color-white', '#000');
+    document.documentElement.style.setProperty('--color-gold', '#000');
+    document.documentElement.style.setProperty('--color-hover', '#bdae82');
+  } else {
+    darkLightButton.style.backgroundImage = lightThemeButtonUrl;
+    currentTheme = darkThemeButtonUrl;
+    document.documentElement.style.setProperty('--color-black', '#000');
+    document.documentElement.style.setProperty('--color-white', '#fff');
+    document.documentElement.style.setProperty('--color-gold', '#bdae82');
+  }
+})
