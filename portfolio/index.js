@@ -188,3 +188,6 @@ darkLightButton.addEventListener('click', () => {
     document.documentElement.style.setProperty('--color-gold', '#bdae82');
   }
 })
+
+
+console.log('Смена изображений в секции portfolio +25\nПеревод страницы на два языка +25\nПереключение светлой и тёмной темы +25\nДополнительный функционал: сложные эффекты для кнопок при наведении и/или клике +5\nScore 80/85');
