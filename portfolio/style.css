@@ -552,7 +552,7 @@ a:hover {
 .hamburger .line {
   width: 50px;
   height: 3px;
-  background-color: var(--color-white);
+  background-color: #ffffff;
   display: block;
   margin: 8px auto;
   -webkit-transition: all 0.5s ease-in-out;
@@ -575,6 +575,7 @@ a:hover {
 }
 
 .is-active .line:nth-child(1) {
+  background-color: var(--color-white);
   -webkit-transform: translateY(17px) rotate(45deg);
   -ms-transform: translateY(17px) rotate(45deg);
   -o-transform: translateY(17px) rotate(45deg);
@@ -582,6 +583,7 @@ a:hover {
 }
 
 .is-active .line:nth-child(3) {
+  background-color: var(--color-white);
   -webkit-transform: translateY(-6px) rotate(-45deg);
   -ms-transform: translateY(-6px) rotate(-45deg);
   -o-transform: translateY(-6px) rotate(-45deg);
@@ -592,16 +594,13 @@ a:hover {
 
 .mobile-menu {
   display: none;
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100vh;
   transition: 0.5s;
 }
 
 .blackout {
-  position: fixed;
+  display: none;
   top: 0;
   left: 0;
   right: 0;
@@ -613,6 +612,8 @@ a:hover {
 }
 
 .blackout--active {
+  display: block;
+  position: fixed;
   opacity: 0.5;
 }
 
@@ -630,13 +631,11 @@ a:hover {
   background-color: var(--color-black);
   padding-top: 134px;
   padding-left: 127px;
-  /* transform: translateX(1500px); */
   z-index: 10;
   transition: 0.5s;
 }
 
 .mobile-menu__items--active {
-  /* transform: translateX(152px); */
   right: 0;
 }
 
@@ -644,6 +643,10 @@ a:hover {
   font-size: 34.8235px;
   line-height: 73px;
   margin-bottom: 16px;
+}
+
+.mobile-menu__item a {
+  color: var(--color-white);
 }
 
 /* Media */
@@ -665,6 +668,8 @@ a:hover {
 
   .card {
     padding: 20px;
+    height: 560px;
+    justify-content: space-around;
   }
 
   .skills {
@@ -700,10 +705,14 @@ a:hover {
   }
 
   .lang {
-    margin-left: 407px;
+    margin-left: 350px;
   }
 
   .lang__item {
+    margin-left: 10px;
+  }
+
+  .dark-light-button {
     margin-left: 10px;
   }
 
@@ -941,7 +950,7 @@ a:hover {
   }
 
   .lang {
-    margin-left: 90px;
+    margin-left: 50px;
   }
 
   .header {
