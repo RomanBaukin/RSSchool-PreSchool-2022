@@ -50,7 +50,7 @@ button {
 
 button:hover {
   color: var(--color-hover);
-  box-shadow: 0 0.5em 0.5em -0.4em #ffa260;
+  box-shadow: 0 0.5em 0.5em -0.4em #bdae82;
   transform: translatey(-0.65em);
 }
 
