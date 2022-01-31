@@ -186,6 +186,7 @@ darkLightButton.addEventListener('click', () => {
     document.documentElement.style.setProperty('--color-black', '#000');
     document.documentElement.style.setProperty('--color-white', '#fff');
     document.documentElement.style.setProperty('--color-gold', '#bdae82');
+    document.documentElement.style.setProperty('--color-hover', '#ffffff');
   }
 })
 
