@@ -334,13 +334,11 @@ a:hover {
 .video-plug {
   position: relative;
   max-width: 1400px;
-  height: 705px;
-  background-image: url('./assets/img/video-player.jpg');
-  background-repeat: no-repeat;
   margin: 0 auto;
 }
 
 .play-button {
+  display: block;
   position: absolute;
   top: calc(50% - 65px);
   left: calc(50% - 65px);
@@ -353,6 +351,111 @@ a:hover {
 
 .play-button:hover {
   filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
+}
+
+/* Video-player */
+
+.player {
+  position: relative;
+  overflow: hidden;
+}
+
+.player:fullscreen {
+  max-width: none;
+  width: 100%;
+}
+
+.player:-webkit-full-screen {
+  max-width: none;
+  width: 100%;
+}
+
+.player__video {
+  width: 100%;
+  height: 100%;
+}
+
+.player__button {
+  width: 40px;
+  height: 36px;
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.player__button:hover,
+.play-button:active {
+  filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
+}
+
+.toggle {
+  background-image: url('./assets/svg/play.svg');
+}
+
+.player__volume {
+  background-image: url('./assets/svg/volume.svg');
+}
+
+.player__slider {
+  height: 10px;
+  width: calc(80% - 160px);
+  outline: none;
+  transition: background 450ms ease-in;
+  -webkit-appearance: none;
+}
+
+.slider__volume {
+  width: calc(20% - 40px);
+}
+
+.player__controls {
+  display: none;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 60px;
+  padding: 0 20px;
+  background-color: #000000;
+}
+
+/* unholy css to style input type="range" */
+
+.slider__playback,
+.slider__volume {
+  background: linear-gradient(to right,
+      #bdae82 0%,
+      #bdae82 0%,
+      #c8c8c8 0%,
+      #c8c8c8 100%);
+  height: 10px;
+  width: calc(80% - 160px);
+  outline: none;
+  transition: background 450ms ease-in;
+  -webkit-appearance: none;
+}
+
+.slider__volume {
+  background: linear-gradient(to right,
+      #bdae82 0%,
+      #bdae82 100%,
+      #c8c8c8 100%,
+      #c8c8c8 100%);
+}
+
+.slider__volume {
+  width: calc(20% - 40px);
+}
+
+.slider__playback::-webkit-slider-thumb,
+.slider__volume::-webkit-slider-thumb {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  -webkit-appearance: none;
+  cursor: ew-resize;
+  background: #fff;
 }
 
 .price {
@@ -817,7 +920,6 @@ a:hover {
 
   .video-plug {
     width: 100%;
-    height: 417px;
     background-size: cover;
     background-position: -5px center;
   }
