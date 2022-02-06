@@ -190,5 +190,73 @@ darkLightButton.addEventListener('click', () => {
   }
 })
 
+// Video-player
 
-console.log('Смена изображений в секции portfolio +25\nПеревод страницы на два языка +25\nПереключение светлой и тёмной темы +25\nДополнительный функционал: сложные эффекты для кнопок при наведении и/или клике +5\nScore 80/85');
+const vidWrapper = document.querySelector('div.player');
+const myVid = vidWrapper.querySelector('video.player__video');
+
+// controls
+const controlPlayButton = document.querySelector('.play-button');
+const controlPlay = vidWrapper.querySelector('.player__button');
+const playerControls = vidWrapper.querySelector('.player__controls');
+const controlVol = vidWrapper.querySelector('.slider__volume');
+const buttonVol = vidWrapper.querySelector('.player__volume');
+const controlProgress = vidWrapper.querySelector('.slider__playback');
+
+// events
+
+myVid.addEventListener('click', toggleVideo);
+myVid.addEventListener('timeupdate', updateProgress);
+controlPlay.addEventListener('click', toggleVideo);
+controlPlayButton.addEventListener('click', toggleVideo);
+controlVol.addEventListener('change', updateVol);
+controlProgress.addEventListener('change', setProgress);
+buttonVol.addEventListener('click', videoMuted);
+
+// functions
+function toggleVideo() {
+  if (myVid.paused) {
+    myVid.play();
+    controlPlayButton.style.display = 'none';
+    playerControls.style.display = 'flex';
+    controlPlay.style.backgroundImage = `url('./assets/svg/pause.svg')`;
+  } else {
+    myVid.pause();
+    controlPlayButton.style.display = 'block';
+    controlPlay.style.backgroundImage = `url('./assets/svg/play.svg')`;
+  };
+}
+
+function updateVol() {
+  var volume = this.value;
+  myVid.volume = volume;
+  controlVol.style.background = `linear-gradient(to right, rgb(189, 174, 130) 0%, rgb(189, 174, 130) ${volume*100}%, rgb(200, 200, 200) ${volume*100}%, rgb(200, 200, 200) 100%)`
+
+  if (volume === '0') {
+    buttonVol.style.backgroundImage = `url('./assets/svg/mute.svg')`;
+  } else {
+    buttonVol.style.backgroundImage = `url('./assets/svg/volume.svg')`;
+  }
+}
+
+function updateProgress() {
+  let valueProgress = (myVid.currentTime / myVid.duration) * 100
+  controlProgress.value = valueProgress;
+  controlProgress.style.background = `linear-gradient(to right, rgb(189, 174, 130) 0%, rgb(189, 174, 130) ${valueProgress}%, rgb(200, 200, 200) ${valueProgress}%, rgb(200, 200, 200) 100%)`
+}
+
+function setProgress() {
+  myVid.currentTime = (controlProgress.value * myVid.duration) / 100;
+}
+
+function videoMuted() {
+  if (myVid.muted === false) {
+    myVid.muted = true;
+    buttonVol.style.backgroundImage = `url('./assets/svg/mute.svg')`;
+  } else {
+    myVid.muted = false;
+    buttonVol.style.backgroundImage = `url('./assets/svg/volume.svg')`;
+  }
+}
+
+console.log('Вёрстка +10\nКнопка Play/Pause на панели управления +10\nПрогресс-бар отображает прогресс проигрывания видео. При перемещении ползунка прогресс-бара вручную меняется текущее время проигрывания видео. Разный цвет прогресс-бара до и после ползунка +10\nПри перемещении ползунка регулятора громкости звука можно сделать звук громче или тише. Разный цвет регулятора громкости звука до и после ползунка +10\nПри клике по кнопке Volume/Mute можно включить или отключить звук. Одновременно с включением/выключением звука меняется внешний вид кнопки. Также внешний вид кнопки меняется, если звук включают или выключают перетягиванием регулятора громкости звука от нуля или до нуля +10\nКнопка Play/Pause в центре видео +10\nScore 60/70');

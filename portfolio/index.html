@@ -140,7 +140,15 @@
     <section class="video" id="video">
       <div class="container video__container">
         <h2 class="video__title subtitle" data-i18="video">Video</h2>
-        <div class="video-plug">
+        <div class="video-plug player">
+          <video class="player__video viewer" src="assets/video/video.mp4" poster="assets/img/video-player.jpg"></video>
+          <div class="player__controls">
+            <div class="player__button toggle" title="Toggle Play"></div>
+            <input type="range" name="playbackProgress" class="player__slider slider__playback">
+            <div class="player__button player__volume"></div>
+            <input type="range" name="volume" class="player__slider slider__volume" min="0" max="1" step="0.05"
+              value="1">
+          </div>
           <div class="play-button"></div>
         </div>
         <!-- /.video-plug -->
