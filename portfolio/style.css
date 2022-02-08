@@ -434,6 +434,7 @@ a:hover {
   outline: none;
   transition: background 450ms ease-in;
   -webkit-appearance: none;
+  cursor: pointer;
 }
 
 .slider__volume {
