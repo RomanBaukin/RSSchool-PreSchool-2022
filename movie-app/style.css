@@ -44,6 +44,32 @@ a {
   margin: 0 auto;
 }
 
+.header {
+  padding: 1rem;
+  display: flex;
+  justify-content: flex-end;
+  background-color: var(--color-secondary);
+}
+
+.search {
+  background-color: transparent;
+  border: 2px solid var(--color-main);
+  border-radius: 50px;
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  color: var(--color-text);
+}
+
+.search:focus {
+  outline: none;
+  background-color: var(--color-main);
+}
+
+.search::placeholder {
+  color: #6b6eb6;
+}
+
 .footer {
   padding: 40px 60px;
   background-color: var(--color-main);
