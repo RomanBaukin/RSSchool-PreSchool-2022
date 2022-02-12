@@ -1,12 +1,13 @@
 @font-face {
-  font-family: 'Merriweather';
-  src: url("assets/fonts/Merriweather-Bold.ttf");
+  font-family: 'Roboto';
+  src: url("assets/fonts/Roboto-Bold.ttf");
   font-weight: 700;
 }
 
 @font-face {
-  font-family: 'Inter';
-  src: url("assets/fonts/Inter-VariableFont_slnt\,wght.ttf");
+  font-family: 'Roboto';
+  src: url("assets/fonts/Roboto-Regular.ttf");
+  font-weight: 400;
 }
 
 :root {
@@ -22,11 +23,10 @@
 }
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 400;
   background-color: var(--color-main);
   color: var(--color-text);
-  position: relative;
 }
 
 ul {
@@ -45,7 +45,7 @@ a {
 }
 
 .footer {
-  padding: 60px 61px;
+  padding: 40px 60px;
   background-color: var(--color-main);
   color: var(--color-text);
 }
