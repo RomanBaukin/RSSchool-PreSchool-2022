@@ -14,8 +14,6 @@
   --color-main: #22254b;
   --color-secondary: #373b69;
   --color-text: #ffffff;
-  --font1: 60px;
-  --font2: 40px;
 }
 
 * {
@@ -49,6 +47,19 @@ a {
   display: flex;
   justify-content: flex-end;
   background-color: var(--color-secondary);
+}
+
+.form {
+  position: relative;
+}
+
+.close {
+  display: none;
+  position: absolute;
+  top: 25%;
+  right: 20px;
+  color: #6b6eb6;
+  cursor: pointer;
 }
 
 .search {
@@ -126,7 +137,7 @@ a {
 }
 
 .overview {
-  background-color: #fff;
+  background-color: var(--color-secondary);
   padding: 2rem;
   position: absolute;
   left: 0;
