@@ -1,15 +1,17 @@
 const mainContainer = document.querySelector('#main');
-const url = 'https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=447e9b64b9efe3df3c5b965636c50ba1';
+const searchInput = document.querySelector('#search');
+const searchForm = document.querySelector('#form');
+let url = 'https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=447e9b64b9efe3df3c5b965636c50ba1';
 
 async function getData() {
   const res = await fetch(url);
   const data = await res.json();
-  console.log(data);
   showData(data);
 }
 getData();
 
 function showData(data) {
+  mainContainer.innerHTML = '';
   for (let key in data.results) {
     const div = document.createElement('div');
     const img = document.createElement('img');
@@ -36,3 +38,19 @@ function showData(data) {
     mainContainer.append(div);
   }
 }
+
+searchInput.addEventListener('change', (event) => {
+  const target = event.target;
+  event.preventDefault();
+  url = `https://api.themoviedb.org/3/search/movie?query=${target.value}&api_key=447e9b64b9efe3df3c5b965636c50ba1`;
+  getData();
+  console.log(target.value);
+})
+
+searchForm.addEventListener('submit', (event) => {
+  const target = event.target;
+  event.preventDefault();
+  console.dir(target);
+  url = `https://api.themoviedb.org/3/search/movie?query=${target.firstElementChild.value}&api_key=447e9b64b9efe3df3c5b965636c50ba1`;
+  getData();
+})
