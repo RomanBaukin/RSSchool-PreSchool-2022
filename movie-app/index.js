@@ -23,6 +23,13 @@ function showData(data) {
     movieInfo.classList.add('movie-info');
     movieInfoH3.textContent = data.results[key].title;
     movieInfoSpan.textContent = data.results[key].vote_average;
+    if (data.results[key].vote_average >= 7) {
+      movieInfoSpan.classList.add('green');
+    } else if (data.results[key].vote_average >= 5) {
+      movieInfoSpan.classList.add('orange');
+    } else {
+      movieInfoSpan.classList.add('red');
+    }
     movieInfo.append(movieInfoH3);
     movieInfo.append(movieInfoSpan);
     div.append(movieInfo);
