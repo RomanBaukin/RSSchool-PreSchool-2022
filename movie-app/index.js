@@ -1,6 +1,7 @@
 const mainContainer = document.querySelector('#main');
 const searchInput = document.querySelector('#search');
 const searchForm = document.querySelector('#form');
+const close = document.querySelector('.close');
 let url = 'https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=447e9b64b9efe3df3c5b965636c50ba1';
 
 async function getData() {
@@ -18,6 +19,7 @@ function showData(data) {
     const movieInfo = document.createElement('div');
     const movieInfoH3 = document.createElement('h3');
     const movieInfoSpan = document.createElement('span');
+    const overview = document.createElement('p');
 
     div.classList.add('movie');
     img.src = `https://image.tmdb.org/t/p/w1280${data.results[key].poster_path}`
@@ -25,6 +27,7 @@ function showData(data) {
     movieInfo.classList.add('movie-info');
     movieInfoH3.textContent = data.results[key].title;
     movieInfoSpan.textContent = data.results[key].vote_average;
+
     if (data.results[key].vote_average >= 7) {
       movieInfoSpan.classList.add('green');
     } else if (data.results[key].vote_average >= 5) {
@@ -32,25 +35,36 @@ function showData(data) {
     } else {
       movieInfoSpan.classList.add('red');
     }
+
+    overview.classList.add('overview');
+    overview.textContent = data.results[key].overview;
     movieInfo.append(movieInfoH3);
     movieInfo.append(movieInfoSpan);
+    movieInfo.append(overview);
     div.append(movieInfo);
     mainContainer.append(div);
   }
 }
 
-searchInput.addEventListener('change', (event) => {
-  const target = event.target;
-  event.preventDefault();
-  url = `https://api.themoviedb.org/3/search/movie?query=${target.value}&api_key=447e9b64b9efe3df3c5b965636c50ba1`;
-  getData();
-  console.log(target.value);
-})
-
 searchForm.addEventListener('submit', (event) => {
   const target = event.target;
   event.preventDefault();
-  console.dir(target);
   url = `https://api.themoviedb.org/3/search/movie?query=${target.firstElementChild.value}&api_key=447e9b64b9efe3df3c5b965636c50ba1`;
   getData();
+})
+
+searchInput.addEventListener('input', (event) => {
+  const target = event.target;
+  event.preventDefault();
+
+  if (target.value === '') {
+    close.style.display = 'none';
+  } else {
+    close.style.display = 'block';
+  }
+})
+
+close.addEventListener('click', () => {
+  searchInput.value = '';
+  close.style.display = 'none';
 })
