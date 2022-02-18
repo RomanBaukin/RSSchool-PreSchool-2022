@@ -67,7 +67,7 @@ a {
   height: 100px;
   border: 1px solid var(--color-main);
   font-size: 34px;
-  columns: var(--color-secondary);
+  color: var(--color-secondary);
   display: flex;
   justify-content: center;
   align-items: center;
