@@ -6,6 +6,11 @@ const boxes = document.getElementsByClassName('box');
 let move = 0;
 let result = '';
 
+const audio = new Audio();
+audio.preload = 'auto';
+
+
+
 const check = () => {
   const winArr = [
     [0, 1, 2],
@@ -20,10 +25,14 @@ const check = () => {
 
   for (const key in winArr) {
     if (boxes[winArr[key][0]].innerHTML === '✘' && boxes[winArr[key][1]].innerHTML === '✘' && boxes[winArr[key][2]].innerHTML === '✘') {
+      audio.src = './assets/audio/strikethrough.mp3';
+      audio.play();
       result = 'Crosses';
       outputResult(result);
       move = 9;
     } else if (boxes[winArr[key][0]].innerHTML === 'Ø' && boxes[winArr[key][1]].innerHTML === 'Ø' && boxes[winArr[key][2]].innerHTML === 'Ø') {
+      audio.src = './assets/audio/strikethrough.mp3';
+      audio.play();
       result = 'Zeros';
       outputResult(result);
       move = 9;
@@ -37,6 +46,8 @@ const outputResult = (winner) => {
 }
 
 const newGame = () => {
+  audio.src = './assets/audio/eraser.mp3';
+  audio.play();
   resultArea.innerHTML = '';
   moveCounter.innerHTML = '';
   for (const item of boxes) {
@@ -48,8 +59,17 @@ const newGame = () => {
 area.addEventListener('click', (event) => {
   const target = event.target;
 
-  if (target.className === 'box' && move < 9) {
-    move % 2 === 0 ? target.innerHTML = '&#10008;' : target.innerHTML = '&#216;';
+  if (target.className === 'box' && move < 9 && target.innerHTML !== '✘' && target.innerHTML !== 'Ø') {
+    if (move % 2 === 0) {
+      audio.src = './assets/audio/pencil-cross.mp3';
+      audio.play();
+      target.innerHTML = '&#10008;';
+    } else {
+      audio.src = './assets/audio/pencil-zero.mp3';
+      audio.play();
+      target.innerHTML = '&#216;';
+    }
+
     move++;
     check();
   }
