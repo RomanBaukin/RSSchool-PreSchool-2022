@@ -55,7 +55,7 @@ a {
 }
 
 .result,
-.total-score {
+.last-games {
   width: 300px;
   height: 500px;
   border: 2px solid bisque;
@@ -76,15 +76,15 @@ a {
   height: 50px;
 }
 
-.total-score ol {
+.last-games ol {
   font-size: 24px;
 }
 
-.total-score ol li {
+.last-games ol li {
   margin-bottom: 10px;
 }
 
-.total-score h2 {
+.last-games h2 {
   text-align: center;
 }
 

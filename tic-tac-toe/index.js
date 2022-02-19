@@ -3,13 +3,13 @@ const moveCounter = document.getElementById('move-counter');
 const area = document.getElementById('area');
 const button = document.getElementById('button');
 const boxes = document.getElementsByClassName('box');
+const lastGamesArea = document.getElementById('last-games');
+const resultArr = JSON.parse(localStorage.getItem('last games')) || [];
 let move = 0;
 let result = '';
 
 const audio = new Audio();
 audio.preload = 'auto';
-
-
 
 const check = () => {
   const winArr = [
@@ -29,12 +29,28 @@ const check = () => {
       audio.play();
       result = 'Crosses';
       outputResult(result);
+      if (resultArr.length < 10) {
+        resultArr.push(outputResult(result));
+      } else {
+        resultArr.shift();
+        resultArr.push(outputResult(result));
+      }
+      localStorage.setItem('last games', JSON.stringify(resultArr));
+      outputLastGames();
       move = 9;
     } else if (boxes[winArr[key][0]].innerHTML === 'Ø' && boxes[winArr[key][1]].innerHTML === 'Ø' && boxes[winArr[key][2]].innerHTML === 'Ø') {
       audio.src = './assets/audio/strikethrough.mp3';
       audio.play();
       result = 'Zeros';
       outputResult(result);
+      if (resultArr.length < 10) {
+        resultArr.push(outputResult(result));
+      } else {
+        resultArr.shift();
+        resultArr.push(outputResult(result));
+      }
+      localStorage.setItem('last games', JSON.stringify(resultArr));
+      outputLastGames();
       move = 9;
     }
   }
@@ -43,6 +59,17 @@ const check = () => {
 const outputResult = (winner) => {
   resultArea.innerHTML = `${winner} win`;
   moveCounter.innerHTML = `Total moves: ${move}`;
+  return `${winner} win`;
+}
+
+const outputLastGames = () => {
+  lastGamesArea.children[1].innerHTML = '';
+
+  for (const item of resultArr) {
+    const li = document.createElement('li');
+    li.innerHTML = item;
+    lastGamesArea.children[1].append(li);
+  }
 }
 
 const newGame = () => {
@@ -76,3 +103,5 @@ area.addEventListener('click', (event) => {
 })
 
 button.addEventListener('click', newGame);
+
+outputLastGames();
