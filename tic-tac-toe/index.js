@@ -11,6 +11,8 @@ let result = '';
 const audio = new Audio();
 audio.preload = 'auto';
 
+setTimeout(() => playAudio(), 100);
+
 const check = () => {
   const winArr = [
     [0, 1, 2],
@@ -26,7 +28,7 @@ const check = () => {
   for (const key in winArr) {
     if (boxes[winArr[key][0]].innerHTML === '✘' && boxes[winArr[key][1]].innerHTML === '✘' && boxes[winArr[key][2]].innerHTML === '✘') {
       audio.src = './assets/audio/strikethrough.mp3';
-      audio.play();
+      setTimeout(() => audio.play(), 100);
       result = 'Crosses win';
       outputResult(result);
       if (resultArr.length < 10) {
@@ -40,7 +42,7 @@ const check = () => {
       move = 9;
     } else if (boxes[winArr[key][0]].innerHTML === 'Ø' && boxes[winArr[key][1]].innerHTML === 'Ø' && boxes[winArr[key][2]].innerHTML === 'Ø') {
       audio.src = './assets/audio/strikethrough.mp3';
-      audio.play();
+      setTimeout(() => audio.play(), 100);
       result = 'Zeros win';
       outputResult(result);
       if (resultArr.length < 10) {
@@ -87,7 +89,7 @@ const outputLastGames = () => {
 
 const newGame = () => {
   audio.src = './assets/audio/eraser.mp3';
-  audio.play();
+  setTimeout(() => audio.play(), 100);
   resultArea.innerHTML = '';
   moveCounter.innerHTML = '';
   for (const item of boxes) {
@@ -103,11 +105,11 @@ area.addEventListener('click', (event) => {
   if (target.className === 'box' && move < 9 && target.innerHTML !== '✘' && target.innerHTML !== 'Ø') {
     if (move % 2 === 0) {
       audio.src = './assets/audio/pencil-cross.mp3';
-      audio.play();
+      setTimeout(() => audio.play(), 100);
       target.innerHTML = '&#10008;';
     } else {
       audio.src = './assets/audio/pencil-zero.mp3';
-      audio.play();
+      setTimeout(() => audio.play(), 100);
       target.innerHTML = '&#216;';
     }
 
