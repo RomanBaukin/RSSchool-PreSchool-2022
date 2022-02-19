@@ -11,8 +11,6 @@ let result = '';
 const audio = new Audio();
 audio.preload = 'auto';
 
-setTimeout(() => playAudio(), 100);
-
 const check = () => {
   const winArr = [
     [0, 1, 2],
