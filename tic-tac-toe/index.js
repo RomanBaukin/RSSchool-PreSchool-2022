@@ -27,13 +27,13 @@ const check = () => {
     if (boxes[winArr[key][0]].innerHTML === '✘' && boxes[winArr[key][1]].innerHTML === '✘' && boxes[winArr[key][2]].innerHTML === '✘') {
       audio.src = './assets/audio/strikethrough.mp3';
       audio.play();
-      result = 'Crosses';
+      result = 'Crosses win';
       outputResult(result);
       if (resultArr.length < 10) {
-        resultArr.push(outputResult(result));
+        resultArr.unshift(outputResult(result));
       } else {
-        resultArr.shift();
-        resultArr.push(outputResult(result));
+        resultArr.pop();
+        resultArr.unshift(outputResult(result));
       }
       localStorage.setItem('last games', JSON.stringify(resultArr));
       outputLastGames();
@@ -41,25 +41,38 @@ const check = () => {
     } else if (boxes[winArr[key][0]].innerHTML === 'Ø' && boxes[winArr[key][1]].innerHTML === 'Ø' && boxes[winArr[key][2]].innerHTML === 'Ø') {
       audio.src = './assets/audio/strikethrough.mp3';
       audio.play();
-      result = 'Zeros';
+      result = 'Zeros win';
       outputResult(result);
       if (resultArr.length < 10) {
-        resultArr.push(outputResult(result));
+        resultArr.unshift(outputResult(result));
       } else {
-        resultArr.shift();
-        resultArr.push(outputResult(result));
+        resultArr.pop();
+        resultArr.unshift(outputResult(result));
       }
       localStorage.setItem('last games', JSON.stringify(resultArr));
       outputLastGames();
       move = 9;
     }
   }
+
+  if (move === 9 && result === '') {
+    result = 'Draw';
+    outputResult(result);
+    if (resultArr.length < 10) {
+      resultArr.unshift(outputResult(result));
+    } else {
+      resultArr.pop();
+      resultArr.unshift(outputResult(result));
+    }
+    localStorage.setItem('last games', JSON.stringify(resultArr));
+    outputLastGames();
+  }
 }
 
 const outputResult = (winner) => {
-  resultArea.innerHTML = `${winner} win`;
+  resultArea.innerHTML = `${winner}`;
   moveCounter.innerHTML = `Total moves: ${move}`;
-  return `${winner} win`;
+  return `${winner}`;
 }
 
 const outputLastGames = () => {
@@ -81,6 +94,7 @@ const newGame = () => {
     item.innerHTML = '';
   }
   move = 0;
+  result = '';
 }
 
 area.addEventListener('click', (event) => {
