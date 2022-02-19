@@ -62,6 +62,7 @@ a {
   border-radius: 2%;
   padding: 20px;
   color: bisque;
+  overflow: hidden;
 }
 
 .result {
@@ -198,6 +199,31 @@ a {
 @media (max-width: 992px) {
   .container {
     max-width: 690px;
+  }
+
+  .area-wrapper {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .result,
+  .last-games {
+    height: 200px;
+    overflow-y: scroll;
+  }
+
+  .result {
+    font-size: 20px;
+    justify-content: space-between;
+  }
+
+  .result p {
+    height: 10px;
+    margin: 0;
+  }
+
+  .last-games ol {
+    font-size: 20px;
   }
 
   .footer {
